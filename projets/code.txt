@@ -1,0 +1,79 @@
+
+
+class FenMenu extends JFrame implements ActionListener
+{ public FenMenu()
+{ setTitle ("Dimensions et Calculs") ;
+setSize (300, 120) ;
+/* creation barre des menus */
+barreMenus = new JMenuBar() ;
+setJMenuBar(barreMenus) ;
+/* creation menu Dimensions et ses options */
+dimensions = new JMenu ("Dimensions") ;
+barreMenus.add(dimensions) ;
+int nOptionsDimensions = nomsOptionsDimensions.length ;
+optionsDimensions = new JMenuItem [nOptionsDimensions] ;
+for (int i=0 ; i<nOptionsDimensions ; i++)
+{ optionsDimensions[i] = new JMenuItem (nomsOptionsDimensions[i]) ;
+dimensions.add (optionsDimensions[i]) ;
+optionsDimensions[i].addActionListener(this);
+
+}
+/* creation menu Edition et ses options */
+calculs = new JMenu ("Calculs") ;
+barreMenus.add (calculs) ;
+int nOptionsCalculs = nomsOptionsCalculs.length ;
+optionsCalculs = new JMenuItem [nOptionsCalculs] ;
+for (int i=0 ; i<nOptionsCalculs ; i++)
+{ optionsCalculs[i] = new JMenuItem (nomsOptionsCalculs[i]) ;
+calculs.add (optionsCalculs[i]) ;
+optionsCalculs[i].addActionListener(this);
+}
+}
+
+public void actionPerformed(ActionEvent e)
+{
+	if (e.getActionCommand().equals("Nouvelle longueur"))
+	{
+		longueur=Double.parseDouble(JOptionPane.showInputDialog(null, "Rentrez votre longueur :" + val, "Longueur", JOptionPane.INFORMATION_MESSAGE));
+	}
+
+	else if (e.getActionCommand().equals("Nouvelle largeur"))
+	{
+		largeur=Double.parseDouble(JOptionPane.showInputDialog(null, "Rentrez votre longueur :" + val, "Largeur", JOptionPane.INFORMATION_MESSAGE));
+	}
+
+	else if (e.getActionCommand().equals("Dimensions actuelles"))
+	{
+		JOptionPane.showMessageDialog(null, "Les dimensions actuelles sont : Largeur :" + largeur + " Longueur : " + longueur, "Dimensions", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	else if (e.getActionCommand().equals("Perimètre"))
+	{
+		JOptionPane.showMessageDialog(null, "Le périmètre est : " + ((largeur + longueur)*2), "Périmètre", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	else if (e.getActionCommand().equals("Aire"))
+	{
+		JOptionPane.showMessageDialog(null, "L'aire est : " + (largeur * longueur), "Aire", JOptionPane.INFORMATION_MESSAGE);
+	}
+}
+private JMenuBar barreMenus ;
+private JMenu dimensions, calculs ;
+private JMenuItem [] optionsDimensions, optionsCalculs ;
+private String[] nomsOptionsDimensions = {"Nouvelle longueur", "Nouvelle largeur", "Dimensions actuelles"} ;
+private String[] nomsOptionsCalculs= { "Perimètre", "Aire"} ;
+private String val,val2;
+private JOptionPane jop,jop2,jop3;
+double longueur,largeur;
+
+}
+
+
+
+public class Dim_Cal
+{ public static void main (String args[])
+{ FenMenu fen = new FenMenu () ;
+fen.setVisible(true) ;
+}
+}
+
