@@ -1,5 +1,4 @@
 
-
 class FenMenu extends JFrame implements ActionListener
 { public FenMenu()
 { setTitle ("Dimensions et Calculs") ;
@@ -47,9 +46,9 @@ public void actionPerformed(ActionEvent e)
 		JOptionPane.showMessageDialog(null, "Les dimensions actuelles sont : Largeur :" + largeur + " Longueur : " + longueur, "Dimensions", JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	else if (e.getActionCommand().equals("Perimètre"))
+	else if (e.getActionCommand().equals("Perimï¿½tre"))
 	{
-		JOptionPane.showMessageDialog(null, "Le périmètre est : " + ((largeur + longueur)*2), "Périmètre", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Le pï¿½rimï¿½tre est : " + ((largeur + longueur)*2), "Pï¿½rimï¿½tre", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	else if (e.getActionCommand().equals("Aire"))
@@ -61,10 +60,11 @@ private JMenuBar barreMenus ;
 private JMenu dimensions, calculs ;
 private JMenuItem [] optionsDimensions, optionsCalculs ;
 private String[] nomsOptionsDimensions = {"Nouvelle longueur", "Nouvelle largeur", "Dimensions actuelles"} ;
-private String[] nomsOptionsCalculs= { "Perimètre", "Aire"} ;
+private String[] nomsOptionsCalculs= { "Perimï¿½tre", "Aire"} ;
 private String val,val2;
 private JOptionPane jop,jop2,jop3;
 double longueur,largeur;
+double test;
 
 }
 
